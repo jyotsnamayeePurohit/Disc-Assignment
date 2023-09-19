@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shortest Path Assignment</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+	<h1>Find the Shortest Path between two planets</h1>
+
+	<form id="myForm">
+		<label for="source">Source Planet</label> <input type="text"
+			id="source" name="source" required><br> <br> <label
+			for="destination">Destination Planet</label> <input type="text"
+			id="destination" name="destination" required><br> <br>
+
+		<button type="submit">Find</button>
+	</form>
+
+	<h2>Shortest Path from Source to other planets in the Graph:</h2>
+	<div id="response">
+		<!-- The table for displaying response data -->
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Source</th>
+					<th>Destination Planet</th>
+					<th>Shortest Distance</th>
+				</tr>
+			</thead>
+			<tbody id="responseData">
+				<!-- Response data will be added here -->
+			</tbody>
+		</table>
+	</div>
+
+	<script>
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+           const source = document.getElementById("source").value;
+    const destination = document.getElementById("destination").value;
+
+            // Make a GET request to your API endpoint
+            fetch(`/api/planet/findShortest/path?source=${source}&destination=${destination}`)
+                .then(response => response.json()) // Parse the response as JSON
+                .then(data => {
+                    const responseData = document.getElementById("responseData");
+                    responseData.innerHTML = ""; // Clear previous data
+
+                    // Iterate through the JSON data and create table rows
+                    for (const key in data) {
+                        const row = document.createElement("tr");
+                        const sourceCell = document.createElement("td");
+                        sourceCell.textContent = source;
+                        const keyCell = document.createElement("td");
+                        keyCell.textContent = key;
+                        const valueCell = document.createElement("td");
+                        valueCell.textContent = data[key];
+                        row.appendChild(sourceCell);
+                        row.appendChild(keyCell);
+                        row.appendChild(valueCell);
+                        
+                        responseData.appendChild(row);
+                    }
+                   
+                });
+        });
+		
+	</script>
+
+
+</body>
+</html>

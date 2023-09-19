@@ -1,0 +1,79 @@
+.container {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #f9f9f9;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+/* Style for h1 heading */
+h1, h2 {
+	font-size: 20px;
+	font-weight: bold;
+	color: #408080; /* Dark gray text color */
+	margin-bottom: 10px; /* Add space below the heading */
+}
+
+label {
+	display: block; /* Make labels block-level elements */
+	font-weight: bold;
+	margin-bottom: 5px; /* Add space below labels */
+}
+
+.highlighted {
+	background-color: yellow; /* You can customize the highlight color */
+}
+
+input[type="text"] {
+	width: 5%;
+	padding: 2px;
+	margin-bottom: 5px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+button[type="submit"] {
+	background-color: #008040;
+	color: #fff;
+	border: none;
+	padding: 8px 16px;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+button[type="submit"]:hover {
+	background-color: #0056b3;
+}
+
+table {
+	width: 35%;
+	border-collapse: collapse;
+	margin-top: 5px;
+}
+
+th, td {
+	padding: 4px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+th {
+	background-color: #408080;
+	color: #fff;
+}
+
+th {
+	background-color: #408080;
+	color: #fff;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+td {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
